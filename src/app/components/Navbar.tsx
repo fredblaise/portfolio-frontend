@@ -108,8 +108,8 @@ const Navbar = (props: Props) => {
             navbarOpen ? "flex-col" : "max-sm:hidden"
           }`}
         >
-          {sections.map((section) => (
-            <li>
+          {sections.map((section, i) => (
+            <li key={i}>
               <a
                 href={section.link}
                 onClick={handleScroll}
