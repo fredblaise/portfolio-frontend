@@ -22,7 +22,7 @@ export function ThemeToggle({ className }: Props) {
     ) {
       setTheme(savedTheme);
     }
-  }, []);
+  }, [setTheme]);
 
   const handleThemeChange = (e: any) => {
     // Save the user's theme preference in local storage
