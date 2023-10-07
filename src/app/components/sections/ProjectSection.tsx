@@ -17,7 +17,7 @@ const ProjectSection = ({ projects }: Props) => {
   return (
     <div
       id="projects"
-      className="mx-auto flex w-full max-w-6xl scroll-mt-12 flex-col gap-6 px-4 pb-48 pb-48 pt-8"
+      className="mx-auto flex w-full max-w-6xl scroll-mt-12 flex-col gap-6 px-4 pb-48 pt-8"
     >
       <h1 className="text-6xl font-semibold max-sm:text-center">PROJECTS</h1>
       <div className="grid gap-6 md:grid-cols-2">
