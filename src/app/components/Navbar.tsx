@@ -15,7 +15,7 @@ const Navbar = (props: Props) => {
   const sections = [
     { name: "About", link: "#about" },
     { name: "Projects", link: "#projects" },
-    { name: "Contact", link: "#contact" },
+    // { name: "Contact", link: "#contact" },
   ];
 
   const handleScroll = async (
