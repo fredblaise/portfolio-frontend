@@ -17,7 +17,7 @@ const HeroSection = ({ title, subtitle, heroImage }: Props) => {
           src={heroImage}
           alt="Hero"
           fill
-          className="obj absolute z-0 h-full w-full opacity-90 dark:opacity-70 max-sm:object-cover"
+          className="obj absolute z-0 h-full w-full opacity-90 dark:opacity-80 max-sm:object-cover"
         />
       </div>
       <div className="absolute z-10 grid min-h-full w-full place-content-center justify-evenly bg-black/20 px-4 transition-colors dark:bg-black/70">
