@@ -23,14 +23,13 @@ const ContactSection = (props: Props) => {
         (result) => {
           console.log(result.text);
           alert("The email was sent succesfully.");
+          form.current?.reset();
         },
         (error) => {
           console.log(error.text);
           alert("The email failed to send. Please try again.");
         },
       );
-
-    form.current?.reset();
   };
 
   return (

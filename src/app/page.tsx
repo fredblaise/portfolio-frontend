@@ -29,7 +29,7 @@ export default async function Home() {
       <div className="flex flex-col gap-20">
         <AboutSection about={portfolioData[0].about} />
         <ProjectSection projects={projectData} />
-        <ContactSection />
+        {/* <ContactSection /> */}
       </div>
     </>
   );
