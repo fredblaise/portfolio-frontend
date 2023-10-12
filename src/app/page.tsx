@@ -4,7 +4,7 @@ import ProjectSection from "@/app/components/sections/ProjectSection";
 import ContactSection from "@/app/components/sections/ContactSection";
 
 async function getData(endpoint: string) {
-  const res = await fetch(endpoint);
+  const res = await fetch(endpoint, { cache: "no-store" });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
