@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/app/components/ThemeToggle";
 import ThreeBars from "@/app/components/icons/ThreeBars";
 import CrossMark from "@/app/components/icons/CrossMark";
@@ -8,6 +9,7 @@ import CrossMark from "@/app/components/icons/CrossMark";
 type Props = {};
 
 const Navbar = (props: Props) => {
+  const currentPage = usePathname();
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>("");
@@ -84,8 +86,8 @@ const Navbar = (props: Props) => {
       >
         <div className="relative flex h-12 w-full max-w-6xl items-center justify-between">
           <a
-            href="#heroSection"
-            onClick={handleScroll}
+            href={currentPage != "/" ? "/" : "#heroSection"}
+            onClick={currentPage != "/" ? undefined : handleScroll}
             className="text-2xl uppercase"
           >
             Fred Blaise
@@ -103,31 +105,33 @@ const Navbar = (props: Props) => {
           </button>
         </div>
 
-        <ul
-          className={`flex list-none items-center gap-4 max-sm:pb-4 lg:flex lg:flex-row ${
-            navbarOpen ? "flex-col" : "max-sm:hidden"
-          }`}
-        >
-          {sections.map((section, i) => (
-            <li key={i}>
-              <a
-                href={section.link}
-                onClick={handleScroll}
-                className={`uppercase ${
-                  activeSection === section.name.toLowerCase()
-                    ? "underline decoration-[3px] underline-offset-4"
-                    : ""
-                }`}
-              >
-                {section.name}
-              </a>
-            </li>
-          ))}
+        {currentPage === "/" && (
+          <ul
+            className={`flex list-none items-center gap-4 max-sm:pb-4 lg:flex lg:flex-row ${
+              navbarOpen ? "flex-col" : "max-sm:hidden"
+            }`}
+          >
+            {sections.map((section, i) => (
+              <li key={i}>
+                <a
+                  href={section.link}
+                  onClick={handleScroll}
+                  className={`uppercase ${
+                    activeSection === section.name.toLowerCase()
+                      ? "underline decoration-[3px] underline-offset-4"
+                      : ""
+                  }`}
+                >
+                  {section.name}
+                </a>
+              </li>
+            ))}
 
-          <li>
-            <ThemeToggle className="max-w-fit bg-transparent text-center" />
-          </li>
-        </ul>
+            <li>
+              <ThemeToggle className="max-w-fit bg-transparent text-center" />
+            </li>
+          </ul>
+        )}
       </div>
     </nav>
   );

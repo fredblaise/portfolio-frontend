@@ -13,7 +13,7 @@ const ProjectItem = ({ title, description, img_url, link }: Props) => {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative overflow-hidden rounded border border-neutral-300"
+      className="group relative w-full overflow-hidden rounded border border-neutral-300 md:w-[calc(50%_-_.75rem)]"
     >
       <div className="h-96 w-full">
         <Image
