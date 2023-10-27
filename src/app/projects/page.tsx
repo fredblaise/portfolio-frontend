@@ -15,7 +15,9 @@ async function getData(endpoint: string) {
 }
 
 const page = async (props: Props) => {
-  const projectData = await getData(`${process.env.NEXT_PUBLIC_PROJECTS_LINK}`);
+  let projectData = await getData(`${process.env.NEXT_PUBLIC_PROJECTS_LINK}`);
+
+  projectData = projectData.sort((a: any, b: any) => a.rank - b.rank);
 
   return (
     <div className="mt-12">

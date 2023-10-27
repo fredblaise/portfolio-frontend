@@ -17,7 +17,12 @@ export default async function Home() {
   const portfolioData = await getData(
     `${process.env.NEXT_PUBLIC_PORTFOLIO_LINK}`,
   );
-  const projectData = await getData(`${process.env.NEXT_PUBLIC_PROJECTS_LINK}`);
+  let projectData = await getData(`${process.env.NEXT_PUBLIC_PROJECTS_LINK}`);
+
+  // Filter and sort project data
+  projectData = projectData
+    .filter((project: any) => project.is_featured)
+    .sort((a: any, b: any) => a.rank - b.rank);
 
   return (
     <>

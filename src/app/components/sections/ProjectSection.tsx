@@ -12,6 +12,8 @@ type Project = {
   description: string;
   link: string;
   img_url: string;
+  rank: number;
+  is_featured: boolean;
 };
 
 type Props = {
