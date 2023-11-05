@@ -6,8 +6,8 @@ import whiteArrows from "@/app/lotties/white-arrows.json";
 
 type Props = {};
 
-const WhiteDownArrows = (props: Props) => {
+const WhiteArrows = (props: Props) => {
   return <Lottie loop animationData={whiteArrows} play className="h-36 w-36" />;
 };
 
-export default WhiteDownArrows;
+export default WhiteArrows;

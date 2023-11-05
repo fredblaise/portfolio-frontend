@@ -38,6 +38,22 @@ const Navbar = (props: Props) => {
   const OFFSET = 200;
 
   useEffect(() => {
+    const checkScroll = () => {
+      if (window.scrollY > 25) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    // Call it on mount to check the initial scroll position
+    checkScroll();
+
+    // Set up the event listener for subsequent scrolls
+    window.addEventListener("scroll", checkScroll);
+
+    // Clean up the event listener when the component unmounts
+
     const handleScrollEvent = () => {
       // Get current scroll position
       const scrollY = window.scrollY + OFFSET;
@@ -68,7 +84,10 @@ const Navbar = (props: Props) => {
     };
 
     window.addEventListener("scroll", handleScrollEvent);
-    return () => window.removeEventListener("scroll", handleScrollEvent);
+    return () => {
+      window.removeEventListener("scroll", handleScrollEvent);
+      window.removeEventListener("scroll", checkScroll);
+    };
   }, []);
 
   return (
@@ -94,7 +113,7 @@ const Navbar = (props: Props) => {
           </a>
 
           <button
-            className={`block cursor-pointer rounded border border-solid border-transparent bg-transparent text-xl leading-none outline-none focus:outline-none lg:hidden ${
+            className={`block cursor-pointer rounded border border-solid border-transparent bg-transparent text-xl leading-none outline-none focus:outline-none md:hidden ${
               scrolled || navbarOpen
                 ? "text-white dark:text-black"
                 : "text-black dark:text-white"
@@ -108,7 +127,7 @@ const Navbar = (props: Props) => {
         {currentPage === "/" && (
           <ul
             className={`flex list-none items-center gap-4 max-sm:pb-4 lg:flex lg:flex-row ${
-              navbarOpen ? "flex-col" : "max-sm:hidden"
+              navbarOpen ? "flex-col" : "max-md:hidden"
             }`}
           >
             {sections.map((section, i) => (

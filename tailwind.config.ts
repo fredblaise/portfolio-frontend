@@ -6,14 +6,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {
-    extend: {
-      animation: {
-        slideUpFadeIn: "slideUpFadeIn 2s forwards",
-        fadeIn: "fadeIn 1.5s forwards",
-      },
-    },
-  },
+  theme: {},
   plugins: [],
   darkMode: "class",
 };

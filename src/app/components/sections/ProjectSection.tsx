@@ -11,6 +11,7 @@ type Project = {
   title: string;
   description: string;
   link: string;
+  github_link: string;
   img_url: string;
   rank: number;
   is_featured: boolean;
@@ -46,6 +47,7 @@ const ProjectSection = ({ projects }: Props) => {
             title={project.title}
             description={project.description}
             link={project.link}
+            github_link={project.github_link}
             img_url={project.img_url}
           />
         ))}
